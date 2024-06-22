@@ -15,7 +15,7 @@
     </div>
     <div class="container">
         <h2>Feedback Form</h2>
-        <form id="Feedback_Form" action="Confirmation.html" method="post">
+        <form id="Feedback_Form">
             <div>
                 <label for="name"><img src="Images/Name.png" alt="">Name :</label>
                 <input type="text" class="form-control" id="name" autofocus required>
@@ -29,17 +29,20 @@
                 <textarea id="message" rows="10" data-limit-rows="true" cols="50" required></textarea>
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button type="button" onclick="handleSubmit()">Submit</button>
             </div>
         </form>
         <h3>Made by Fain Denis</h3>
         <script>
-            function handleSubmit(event) {
-                event.preventDefault();
-                document.querySelector('.modal').style.display = 'flex';
-                setTimeout(() => {document.getElementById('Feedback_Form').submit();}, 2000);
+            function handleSubmit() {
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var message = document.getElementById('message').value;
             }
-            document.getElementById('Feedback_Form').onsubmit = handleSubmit;
+            function handleSubmit(event) {
+                document.querySelector('.modal').style.display = 'flex';
+                setTimeout(function() {window.location.href = 'Confirmation.html';}, 2000);
+            }
         </script>
     </div>
 </body>
